@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 22.20.0
+  PNPM_VERSION: 10.18.0
+
+jobs:
+  ci:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Setup Node.js and install dependencies
+        uses: ./.github/actions/node-install
+        with:
+          pnpm-version: ${{ env.PNPM_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup Biome CLI
+        uses: biomejs/setup-biome@c8649b3e1f1c0e92a873faffe6703560f697e9ea # v2.6.0
+
+      - name: Execute Biome
+        run: pnpm biome:ci
+
+      - name: Execute Prettier
+        run: pnpm prettier:ci
+
+      - name: Execute ESLint
+        run: pnpm eslint:ci
+
+      - name: Execute TypeCheck
+        run: pnpm typecheck
+
+      - name: Execute Build
+        run: pnpm build

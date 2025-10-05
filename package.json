@@ -1,0 +1,53 @@
+{
+  "name": "tanstack-start-x-hono-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev",
+    "build": "pnpm --recursive run build",
+    "build:frontend": "pnpm --filter frontend build",
+    "build:backend": "pnpm --filter backend build",
+    "biome": "biome check .",
+    "biome:fix": "biome check --write .",
+    "biome:ci": "biome ci .",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "prettier:ci": "prettier --check --log-level warn .",
+    "format": "pnpm prettier && pnpm biome",
+    "format:fix": "pnpm prettier:fix && pnpm biome:fix",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "eslint:ci": "eslint . --max-warnings 0",
+    "typecheck": "pnpm --recursive run typecheck",
+    "lint": "pnpm eslint && pnpm biome && pnpm prettier && pnpm typecheck",
+    "lint:fix": "pnpm eslint:fix && pnpm biome:fix && pnpm prettier:fix && pnpm typecheck",
+    "generate-types": "pnpm --filter backend generate-types && pnpm lint:fix",
+    "prepare": "jiti .husky/install.mts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.4",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/types": "19.8.1",
+    "@eslint/js": "9.36.0",
+    "@types/eslint-plugin-tailwindcss": "3.17.0",
+    "@types/node": "24.5.2",
+    "commitlint-config-gitmoji": "2.3.1",
+    "consola": "3.4.2",
+    "eslint": "9.36.0",
+    "eslint-plugin-tailwindcss": "3.18.2",
+    "globals": "16.4.0",
+    "husky": "9.1.7",
+    "jiti": "2.6.0",
+    "lint-staged": "16.2.3",
+    "prettier": "3.6.2",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.44.1"
+  },
+  "packageManager": "pnpm@10.18.0",
+  "volta": {
+    "node": "22.20.0",
+    "pnpm": "10.18.0"
+  }
+}
