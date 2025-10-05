@@ -120,8 +120,8 @@ Common types: feat, fix, chore, docs, test, refactor, perf, ci
 
 The backend provides these development URLs:
 
-- Health Check: http://localhost:8787/api/health
-- Swagger UI: http://localhost:8787/api/swagger
-- OpenAPI Spec: http://localhost:8787/api/openapi.yaml
+- Health Check: [http://localhost:8787/api/health](http://localhost:8787/api/health)
+- Swagger UI: [http://localhost:8787/api/swagger](http://localhost:8787/api/swagger)
+- OpenAPI Spec: [http://localhost:8787/api/openapi.yaml](http://localhost:8787/api/openapi.yaml)
 
 All API routes are defined in `backend/src/routes/` and use Zod for validation with automatic OpenAPI generation.
