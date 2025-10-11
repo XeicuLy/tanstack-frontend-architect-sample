@@ -98,10 +98,10 @@ pnpm typecheck         # 型チェック
 
 ## 🌐 開発 URL
 
-- **フロントエンド**: http://localhost:3000
-- **API サーバー**: http://localhost:8787
-- **API ドキュメント**: http://localhost:8787/api/swagger
-- **ヘルスチェック**: http://localhost:8787/api/health
+- **フロントエンド**: [http://localhost:3000](http://localhost:3000)
+- **API サーバー**: [http://localhost:8787](http://localhost:8787)
+- **API ドキュメント**: [http://localhost:8787/api/swagger](http://localhost:8787/api/swagger)
+- **ヘルスチェック**: [http://localhost:8787/api/health](http://localhost:8787/api/health)
 
 ## 📚 開発のポイント
 
