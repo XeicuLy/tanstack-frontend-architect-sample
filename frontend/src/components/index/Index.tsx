@@ -1,5 +1,15 @@
+import { useHealth } from '@/hooks/useHealth';
+import { HealthStatusDisplayArea } from './HealthStatusDisplayArea';
+import { Title } from './Title';
+
 export const Index = () => {
   const greetingMessage = 'Hello TanStack App!';
+  const { healthStatusData } = useHealth();
 
-  return <h1 className="text-xl">{greetingMessage}</h1>;
+  return (
+    <>
+      <Title title={greetingMessage} />
+      <HealthStatusDisplayArea {...healthStatusData} />
+    </>
+  );
 };
